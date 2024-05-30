@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Top from '@/components/Top';
+import Top from '@/components/layout/Top';
 
 export default function main() {
   const repeatText = () => {
