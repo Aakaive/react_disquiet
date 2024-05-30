@@ -14,7 +14,9 @@ const Top = () => {
                     {/* 탑_좌측 */}
                     <div className={styles.site_logo}>
                         {/* 사이트 로고 */}
-                        <div>Disquiet*</div>
+                        <Link href="/">
+                            Disquiet*
+                        </Link>
                     </div>
                     <div className="">
                         {/* 검색창 */}
