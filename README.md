@@ -34,3 +34,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+-----------------------------
+
+#프로젝트 진행 구상
+1. 컴포넌트 리스트업
+2. 컴포넌트 단위로 요소 리스트업
+3. 리스트 작성된 요소들 중, 공통으로 스타일 적용되는 요소들을 그룹화하기
+4. 컴포넌트 별 동작 명세
+5. 각 컴포넌트를 브랜치하여 로직 작성 및 스타일링하여 통합하기.
+6. url 사용 알아보기.(서버 요청)
+7. url을 통해 표시 컨텐츠 필터링 하는 방법 알아보기(스크립트가 아니라 쿼리 수행하기. 트래픽 줄이고 클라이언트 부담 감소 위함.)
+8. 포스트 약 3개 분량만 데이터 베이스 스키마 작성하기
+9. 스키마를 프로젝트에 포함하여, 펫칭한 후 데이터를 불러 와 페이지에 표시하기.
+10. 구글 로그인 적용시켜보기(권한 부여)
