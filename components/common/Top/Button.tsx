@@ -12,6 +12,9 @@ const Button: FC<ButtonProps> = ({children, className}) => {
                     bg-[rgb(255,255,255)] border-[rgb(234,234,236)] border-[1px]
                     transition-all duration-100 delay-0 ease-out
                     rounded-[20px] ${className}
+                    max-lg:m-0 max-lg:p-[12px] max-lg:w-full
+                    max-lg:text-[13px] max-lg:leading-[13px]
+                    max-lg:rounded-[12px]
                 `}
         >
             {children}

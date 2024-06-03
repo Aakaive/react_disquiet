@@ -1,11 +1,19 @@
+'use client';
+
 import Link from 'next/link';
-import React from 'react';
-import styles from '@/styles/components/Top.module.css';
+import React, {useState} from 'react';
+// import styles from '@/styles/components/Top.module.css';
 import Button from '../common/Top/Button';
 import HoverLink from '../common/Top/HoverLink';
 import InfoNav from '../common/Top/InfoNav';
 
 const Top = () => {
+    const [isVisible, setIsVisible] = useState(false);
+
+    const handleToggle = () => {
+        setIsVisible(!isVisible);
+    };
+
     return (
         <div className="
             sticky h-full bg-white top-0 bg-opacity-75 shadow-sm z-50
@@ -49,28 +57,41 @@ const Top = () => {
                         </div>
                     </div>
                 </div>
-                <div className="hidden">
-                    {/* 오른쪽 메뉴 토글(반응형) */}
-                </div>
                 <div className="items-center justify-center flex flex-row">
                     {/* 탑_우측 */}
-                    <div className="flex lg:hidden w-[32px] items-center justify-center">
-                        {/* 메뉴 토글 */}
+                    <div 
+                        onClick={handleToggle}
+                        className="hidden max-lg:flex w-[32px] items-center justify-center cursor-pointer"
+                    >
+                        {/* 오른쪽 메뉴 토글 버튼 */}
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor13" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 stroke-gray-500">
-                            {/* X모양 토글 */}
+                            {/* X모양 아이콘 */}
                             <path d="M18 6 6 18"></path><path d="m6 6 12 12"></path>
                         </svg>
                     </div>
-                    <div className="hidden lg:flex relative items-center h-full">
+                    <div className={`${isVisible ? 'block' : 'hidden'} min-lg:flex relative items-center h-full
+                            max-lg:absolute max-lg:flex-col max-lg:top-[56px] max-lg:right-[0.7rem] max-lg:p-[4px] 
+                            max-lg:h-fit
+                            max-lg:bg-[rgb(255,255,255)] max-lg:shadow-[0_1px_6px_rgba(0,0,0,0.1)]
+                            max-lg:rounded-[16px]
+                        `}
+                    >
                         {/* 컬럼 랲퍼 */}
-                        <div className="flex flex-row mr-2 transition-all duration-100 delay-0 ease-out">
+                        <div className="flex flex-row mr-2 transition-all duration-100 delay-0 ease-out
+                                max-lg:flex-col max-lg:mr-0 max-lg:w-[216px]
+                            "
+                        >
                             {/* 내비게이션 리스트 */}
                             <div className="relative cursor-default
                                 items-center flex flex-col ml-4 pt-[16px] pb-[15px] text-[13px] leading-[1.6em]
                                 text-[rgb(112,112,112)] border-b-[rgba(0,0,0,0)] border-b-[2px]
                                 whitespace-nowrap cursor-pointer 
                                 transition-all duration-100 delay-0 ease-out gap-0.5 ${className}
-                                hover:decoration-[rgb(109,85,255)] hover:text-[rgb(109,85,255)] hover:border-b-[rgba(109,85,255,1)]
+                                min-lg:hover:decoration-[rgb(109,85,255)] min-lg:hover:text-[rgb(109,85,255)] min-lg:hover:border-b-[rgba(109,85,255,1)]
+                                max-lg:items-start max-lg:justify-start max-lg:m-0 max-lg:py-[6px] max-lg:px-[8px] max-lg:w-full
+                                max-lg:text-[rgba(0,0,0,0.6)]
+                                max-lg:hover:bg-[rgb(246,246,246)] max-lg:hover:text-[rgb(0,0,0)]
+                                max-lg:hover:rounded-[12px]
                                 group
                                 "
                             >
@@ -99,16 +120,23 @@ const Top = () => {
                                 채용 공고
                             </HoverLink>
                         </div>
-                        <div className="h-4 ml-4 mr-4 w-px bg-[rgb(234,234,236)]">
+                        <div className="h-4 ml-4 mr-4 w-px bg-[rgb(234,234,236)]
+                                max-lg:h-px max-lg:w-[calc(100%-8px)] max-lg:mx-0 max-lg:my-1
+                            "
+                        >
                             {/* 세퍼레이터 */}
                         </div>
-                        <div className="flex flex-row">
+                        <div className="flex flex-row
+                                max-lg:flex-col max-lg:p-[4px] max-lg:mt-[6px] max-lg:w-full
+                                max-lg:gap-[6px]
+                            "
+                        >
                             {/* 로그인/회원가입 버튼 */}
                             <Button className="hover:bg-[rgb(234,234,236)]">
                                 {/* 로그인 */}
                                 로그인
                             </Button>
-                            <Button className="bg-[rgb(109,85,255)] border-[rgb(109,85,255)] text-white
+                            <Button className="bg-[rgba(109,85,255,1)] border-[rgb(109,85,255)] text-white
                                     hover:bg-[rgb(255,255,255)] hover:text-[rgb(109,85,255)]
                                     hover:shadow-[0_0_0_3px_rgba(109,85,255,0.4)]"
                             >
