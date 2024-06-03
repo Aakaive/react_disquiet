@@ -54,7 +54,14 @@ const Top = () => {
                 </div>
                 <div className="items-center justify-center flex flex-row">
                     {/* 탑_우측 */}
-                    <div className="relative flex items-center h-full">
+                    <div className="flex lg:hidden w-[32px] items-center justify-center">
+                        {/* 메뉴 토글 */}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor13" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 stroke-gray-500">
+                            {/* X모양 토글 */}
+                            <path d="M18 6 6 18"></path><path d="m6 6 12 12"></path>
+                        </svg>
+                    </div>
+                    <div className="hidden lg:flex relative items-center h-full">
                         {/* 컬럼 랲퍼 */}
                         <div className="flex flex-row mr-2 transition-all duration-100 delay-0 ease-out">
                             {/* 내비게이션 리스트 */}
@@ -109,18 +116,6 @@ const Top = () => {
                                 회원가입
                             </Button>
                         </div>
-                    </div>
-                    <div>
-                        {/* 내비게이션 리스트 */}
-                        <div>
-                            {/* 사이트 소개 세부 내비게이션 리스트 */}
-                        </div>
-                    </div>
-                    <div>
-                        {/* 세퍼레이터 */}
-                    </div>
-                    <div>
-                        {/* 로그인/회원가입 버튼 */}
                     </div>
                 </div>
             </div>
