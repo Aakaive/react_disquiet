@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import React from 'react';
 import styles from '@/styles/components/Top.module.css';
-import Button from '../common/Button';
-import HoverLink from '../common/HoverLink';
+import Button from '../common/Top/Button';
+import HoverLink from '../common/Top/HoverLink';
+import InfoNav from '../common/Top/InfoNav';
 
 const Top = () => {
     return (
@@ -57,14 +58,31 @@ const Top = () => {
                         {/* 컬럼 랲퍼 */}
                         <div className="flex flex-row mr-2 transition-all duration-100 delay-0 ease-out">
                             {/* 내비게이션 리스트 */}
-                            <HoverLink className="cursor-default">
+                            <div className="relative cursor-default
+                                items-center flex flex-col ml-4 pt-[16px] pb-[15px] text-[13px] leading-[1.6em]
+                                text-[rgb(112,112,112)] border-b-[rgba(0,0,0,0)] border-b-[2px]
+                                whitespace-nowrap cursor-pointer 
+                                transition-all duration-100 delay-0 ease-out gap-0.5 ${className}
+                                hover:decoration-[rgb(109,85,255)] hover:text-[rgb(109,85,255)] hover:border-b-[rgba(109,85,255,1)]
+                                group
+                                "
+                            >
                                 {/* 사이트 소개 */}
                                 <svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" className="hidden"><path d="M13.9912 22.7422C18.9746 22.7422 23.0879 18.6289 23.0879 13.6543C23.0879 8.67969 18.9658 4.56641 13.9824 4.56641C9.00781 4.56641 4.90332 8.67969 4.90332 13.6543C4.90332 18.6289 9.0166 22.7422 13.9912 22.7422ZM13.9912 20.9316C9.95703 20.9316 6.73145 17.6885 6.73145 13.6543C6.73145 9.62012 9.95703 6.38574 13.9824 6.38574C18.0166 6.38574 21.2598 9.62012 21.2686 13.6543C21.2773 17.6885 18.0254 20.9316 13.9912 20.9316ZM16.1797 13.2236C17.085 13.2236 17.8496 12.4062 17.8496 11.3691C17.8496 10.3496 17.085 9.56738 16.1797 9.56738C15.2656 9.56738 14.501 10.3672 14.501 11.3691C14.5098 12.4062 15.2656 13.2236 16.1797 13.2236ZM11.3633 13.3115C12.1543 13.3115 12.8311 12.6084 12.8311 11.6943C12.8311 10.8154 12.1543 10.1299 11.3633 10.1299C10.5811 10.1299 9.9043 10.8242 9.9043 11.7031C9.9043 12.6084 10.5723 13.3115 11.3633 13.3115ZM9.06934 17.0908H12.1895C11.7588 16.458 12.2422 15.2012 13.1738 14.4717C12.708 14.1729 12.1191 13.9443 11.3633 13.9443C9.50879 13.9443 8.30469 15.3154 8.30469 16.4404C8.30469 16.8535 8.50684 17.0908 9.06934 17.0908ZM13.5781 17.0908H18.7637C19.4492 17.0908 19.6865 16.8799 19.6865 16.4932C19.6865 15.4297 18.333 13.9619 16.1797 13.9619C14.0176 13.9619 12.6553 15.4297 12.6553 16.4932C12.6553 16.8799 12.9014 17.0908 13.5781 17.0908Z"></path></svg>
                                 사이트 소개
-                                <div>
+                                <div className="hidden absolute box-content flex flex-col p-1 top-[calc(100%+2px)] w-fit
+                                    bg-[rgb(255,255,255,0.72)] border-[rgba(0,0,0,0.06)] border-px shadow-[0_0_12px_rgba(0,0,0,0.04)]
+                                    transtion-all duration-100 delay-0 ease-out
+                                    rounded-[12px] backdrop-blur-[20px] backdrop-saturate-[1.8] backdrop-brightness-[1.1]
+                                    group-hover:flex
+                                    "
+                                >
                                     {/* 사이트 소개 플로팅 리스트 */}
+                                    <InfoNav href="#">제품 기능</InfoNav>
+                                    <InfoNav href="#">Ethos</InfoNav>
+                                    <InfoNav href="#">커뮤니티 가이드라인</InfoNav>
                                 </div>
-                            </HoverLink>
+                            </div>
                             <HoverLink href="#">
                                 {/* 메이커 클럽 */}
                                 메이커 클럽
