@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Top from '@/components/layout/Top';
+import Main from '@/components/main/Main';
 
 export default function main() {
   const repeatText = () => {
@@ -13,7 +14,7 @@ export default function main() {
     <div className="relative">
       <Top />
       <div className="h-full">
-        {repeatText()}
+        <Main />
       </div>
     </div>
   );
