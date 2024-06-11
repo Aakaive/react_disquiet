@@ -21,6 +21,26 @@ body {
   background-color: rgb(245, 245, 247);
 }
 
+.topic-list:hover::-webkit-scrollbar-thumb {
+  background-color: rgb(234, 234, 236);
+}
+
+.topic-list::-webkit-scrollbar {
+  width: 6px;
+  height: 0px;
+  background-color: transparent;
+}
+
+.topic-list::-webkit-scrollbar-thumb:hover {
+  background-color: transparent;
+  border-radius: 8px;
+}
+
+.topic-list::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 8px;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
