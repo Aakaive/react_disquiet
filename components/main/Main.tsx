@@ -6,7 +6,10 @@ import Link from "next/link";
 const Main = () => {
 
     return (
-        <main className="relative grid m-0 max-w-[1280px] px-[16px] py-[8px] z-0 grid-cols-[2.5fr,7fr,3fr] gap-x-[64px]">
+        <main className="relative grid m-0 max-w-[1280px] px-[16px] py-[8px] z-0 grid-cols-[2.5fr,7fr,3fr] gap-x-[64px]
+                min-1280:mx-auto
+            "
+        >
             <Left />
             <div className="relative mt-[32px] min-w-[478px]">
                 {/* 중앙 */}
