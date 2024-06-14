@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import React, {useState, useEffect,useRef} from 'react';
-// import styles from '@/styles/components/Top.module.css';
 import Button from '../common/Top/Button';
 import HoverLink from '../common/Top/HoverLink';
 import InfoNav from '../common/Top/InfoNav';
