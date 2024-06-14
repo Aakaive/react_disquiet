@@ -21,6 +21,16 @@ body {
   background-color: rgb(245, 245, 247);
 }
 
+.top::before {
+  position: absolute;
+  content:'';
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  backdrop-filter: blur(20px) saturate(180%) brightness(1);
+}
+
 .topic-list:hover::-webkit-scrollbar-thumb {
   background-color: rgb(234, 234, 236);
 }

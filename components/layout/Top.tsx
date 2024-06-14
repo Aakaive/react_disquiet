@@ -57,10 +57,10 @@ const Top = () => {
     }, []);
 
     return (
-        <div className="
-            sticky w-full bg-white top-0 bg-opacity-75 shadow-sm z-50
-            backdrop-blur-xl backdrop-saturate-150 backdrop-brightness-100
-        ">
+        <div className={`top
+            sticky w-full bg-[rgba(255,255,255,0.72)] top-0 shadow-sm z-[50]
+            
+        `}>
             <div className="px-4 items-center justify-between relative flex mx-auto h-[52px] max-w-[1280px] min-h-[48px]
                     max-md:px-[11.2px]
                 "
@@ -75,14 +75,14 @@ const Top = () => {
                             <img className="hidden max-md:block self-center h-[24px] pl-[2px] max-w-none overflow-clip align-middle curdor-pointer" src="/images/logo_symbol.908118e7d652d5bd862c86ea0505e739.svg"></img>
                         </Link>
                     </div>
-                    <div ref={componentRef} className="w-full">
+                    <div ref={componentRef} className="w-full z-[100]">
                         {/* 검색창 래퍼(확장 스크립트 적용시 너비 변화 감안) */}
                         <div className={`${isExtended ? 'max-w-[96%]' : 'max-w-[196px]' } relative flex flex-col ml-6
                                 transition-all duration-200 delay-0 ease-out
                                 max-md:ml-[12px]
                             `}
                         >
-                            <form className={`${isExtended ? "bg-[rgb(255,255,255)] shadow-[0_0_0_3px_rgba(109,85,255,0.4)]" : "bg-[rgba(245,245,247)]"} flex mt-0 py-1.5 pl-2 pr-3 
+                            <form className={`${isExtended ? "bg-[rgba(255,255,255,1)] shadow-[0_0_0_3px_rgba(109,85,255,0.4)]" : "bg-[rgba(245,245,247,1)]"} flex mt-0 py-1.5 pl-2 pr-3 
                                     border rounded-[10px] border-[rgb(245,245,247)]
                                     transition-all duration-100 delay-0 ease-out
                                     max-lg:mr-[8px]
@@ -107,15 +107,17 @@ const Top = () => {
                                     {/* 검색창 */}
                                 </input>
                             </form>
-                            <div className={` ${isExtended ? 'flex' : 'hidden'} absolute bottom-auto flex-col left-0 max-h-[605px] 
-                                    overflow-x-hidden pb-2 px-[14px] pt-[14px] top-[37px] w-full z-[2]
+                            <div className={` ${isExtended ? 'flex' : 'hidden'} absolute items-center bottom-auto flex-col left-0 max-h-[605px] 
+                                    overflow-x-hidden overflow-y-auto pb-2 px-[14px] pt-[14px] top-[37px] w-full z-[2]
                                     bg-[rgba(245,245,247,0.72)] border-[1px] border-[rgb(224,224,224)]
                                     shadow-[0_2px_6px_0_rgba(0,0,0,0.1)]
-                                    backdrop-blur-[20px] backdrop-saturate-(1.8) rounded-[16px]
+                                    backdrop-blur-[20px] backdrop-saturate-[180%]
+                                    rounded-[16px]
                                 `}
                             >
                                 {/* 검색결과 미리보기 창 */}
-                                <div className="my-[16px] mx-0 w-full z-[1]
+                                {/* backdrop-filter 설정 시, 하위 요소들이 backdrop-filter 컨테이너에 종속되므로 backdrop-filter가 적용된 요소의 하위 요소에 중복 적용 안됨 -> 해당 요소에 가상 요소 적용해서 컨테이너 분리 */}
+                                <div className="my-[16px] mx-0 w-full
                                         text-[14px] leading-[16.8px] text-center break-keep text-[rgb(142,142,142)]
                                     "
                                 >
