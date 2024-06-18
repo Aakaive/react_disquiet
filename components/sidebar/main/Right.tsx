@@ -197,6 +197,28 @@ const Right = () => {
                     </div>
                     <div>
                         {/* 푸터 */}
+                        <div className="items-center flex flex-row flex-wrap">
+                            {/* 랲퍼 */}
+                            <Link href={"#"} className="footer-item">슬랙봇</Link>
+                            <p className="footer-dot">•</p>
+                            <Link href={"#"} className="footer-item">매거진</Link>
+                            <p className="footer-dot">•</p>
+                            <Link href={"#"} className="footer-item">문의</Link>
+                            <p className="footer-dot">•</p>
+                            <Link href={"#"} className="footer-item">이용약관</Link>
+                            <p className="footer-dot">•</p>
+                            <Link href={"#"} className="footer-item">개인정보처리방침</Link>
+                            <p className="footer-dot">•</p>
+                            <Link href={"#"} className="footer-item">커뮤니티 가이드라인</Link>
+                            <p className="footer-dot">•</p>
+                            <Link href={"#"} className="footer-item">스토어</Link>
+                        </div>
+                        <div className="h-px my-2 mx-0 w-full bg-[rgb(234,234,236)]">
+                            {/* 세퍼레이터 */}
+                        </div>
+                        <div className="flex flex-col ml-[-4px] text-[12px] leading-[18px] text-[rgb(142,142,142)] gap-[4px]">
+                            {/* 사업자 정보 */}
+                        </div>
                     </div>
                 </div>
             </div>

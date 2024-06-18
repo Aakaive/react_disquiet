@@ -56,3 +56,26 @@ body {
     text-wrap: balance;
   }
 }
+
+.footer-item {
+  margin: 2px;
+  font-size: 12px;
+  line-height: 16.8px;
+  text-decoration-color: rgb(142, 142, 142);
+  text-decoration-line: none;
+  color: rgb(142,142,142);
+  transition: 0s all 0.1s ease-out;
+  cursor: pointer;
+}
+
+.footer-item:hover {
+  color: rgb(109,85,255);
+}
+
+.footer-dot {
+  margin-block: 0px;
+  margin-inline: 2px;
+  font-size: 8px;
+  line-height: 8px;
+  color: rgb(142,142,142);
+}
