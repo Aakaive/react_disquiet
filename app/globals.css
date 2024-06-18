@@ -64,7 +64,7 @@ body {
   text-decoration-color: rgb(142, 142, 142);
   text-decoration-line: none;
   color: rgb(142,142,142);
-  transition: 0s all 0.1s ease-out;
+  transition: 0.1s all 0s ease-out;
   cursor: pointer;
 }
 
