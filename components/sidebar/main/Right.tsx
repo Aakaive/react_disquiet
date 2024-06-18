@@ -4,6 +4,7 @@ import React, {useState, useEffect} from "react";
 import Link from "next/link";
 import RankingProduct from "@/components/common/Right/RankingProduct"
 import JoinMaker from "@/components/common/Right/JoinMaker";
+import MakerLog from "@/components/common/Right/MakerLog";
 
 const images = [
     '/images/052024-maker-sprint-1.jpg',  // 배경 이미지 경로를 여기에 추가하세요
@@ -127,9 +128,13 @@ const Right = () => {
                                 </svg>
                             </span>
                         </div>
-                        <div className="flex flex-col overflow-hidden p-1 rounded-[14px]">
+                        <div className="flex flex-col overflow-hidden p-1 bg-white rounded-[14px]">
                             {/* 바디(메이커로그 리스트) */}
-
+                            <MakerLog link={"#"} rank={1} image={"#"} name={"이름"} tag={"#태그"} title={"메이커로그 제목"}></MakerLog>
+                            <MakerLog link={"#"} rank={2} image={"#"} name={"이름"} tag={"#태그"} title={"메이커로그 제목"}></MakerLog>
+                            <MakerLog link={"#"} rank={3} image={"#"} name={"이름"} tag={"#태그"} title={"메이커로그 제목"}></MakerLog>
+                            <MakerLog link={"#"} rank={4} image={"#"} name={"이름"} tag={"#태그"} title={"메이커로그 제목"}></MakerLog>
+                            <MakerLog link={"#"} rank={5} image={"#"} name={"이름"} tag={"#태그"} title={"메이커로그 제목"}></MakerLog>
                         </div>
                     </div>
                     <div>
