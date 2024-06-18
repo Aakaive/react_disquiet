@@ -29,7 +29,7 @@ const Right = () => {
     };
 
     return (
-        <div className="mt-[32px] min-w-[246px]">
+        <div className="mt-[32px] min-w-[246px] max-lg:hidden">
             {/* 우측 배치 */}
             <div className="relative flex flex-col h-full gap-[8px]">
                 {/* 우측 랲퍼 */}

@@ -8,12 +8,13 @@ const Main = () => {
     return (
         <main className="relative grid m-0 max-w-[1280px] px-[16px] py-[8px] z-0 grid-cols-[2.5fr,7fr,3fr] gap-x-[64px]
                 min-1280:mx-auto
+                max-lg:grid-cols-[1fr]
             "
         >
             <Left />
-            <div className="relative mt-[32px] min-w-[478px]">
+            <div className="relative mt-[32px] min-w-[478px] max-md:min-w-0">
                 {/* 중앙 */}
-                <div className="flex flex-col mb-[24px] gap-[6px]">
+                <div className="flex flex-col mb-[24px] gap-[6px] max-sd:hidden">
                     {/* 포스팅 항목 랲퍼 */}
                     <div className="items-center flex gap-[8px]">
                         {/* 포스팅 버튼 랩퍼 */}

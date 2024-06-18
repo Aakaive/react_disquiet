@@ -11,7 +11,7 @@ const Left = () => {
     };
 
     return (
-        <div className="relative flex flex-col h-full mt-[24px] mb-[32px] gap-[32px]">
+        <div className="relative flex flex-col h-full mt-[24px] mb-[32px] gap-[32px] w-[226px] max-1160:w-[180px] max-lg:hidden">
             {/* 왼쪽 상자 배치 */}
             <div className={`sticky top-[92px]`}>
                 {/* 왼쪽 상자 */}
