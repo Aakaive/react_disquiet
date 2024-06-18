@@ -13,7 +13,7 @@ interface MakerLogProps {
 const MakerLog: React.FC<MakerLogProps> = ({link, rank, image, name, tag, title}) => {
     return (
         <Link href={link}
-            className="flex justify-between py-[10px] px-[8px] bg-[rgba(0,0,0,0)] cursor-pointer transition-all transition-delay-0 transition-duration-100 ease-out hover:bg-[rgb(246,246,248)]"
+            className="flex justify-between py-[10px] px-[8px] bg-[rgba(0,0,0,0)] cursor-pointer transition-all transition-delay-0 transition-duration-100 ease-out rounded-[12px] hover:bg-[rgb(246,246,248)]"
         >
             <div className="flex flex-row w-full">
                 {/* 랲퍼 */}
