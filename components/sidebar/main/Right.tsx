@@ -3,6 +3,7 @@
 import React, {useState, useEffect} from "react";
 import Link from "next/link";
 import RankingProduct from "@/components/common/Right/RankingProduct"
+import JoinMaker from "@/components/common/Right/JoinMaker";
 
 const images = [
     '/images/052024-maker-sprint-1.jpg',  // 배경 이미지 경로를 여기에 추가하세요
@@ -83,8 +84,32 @@ const Right = () => {
                         <RankingProduct link={`#`} rank={5} profile={"#"} title={"제목"} description={"프로덕트 설명글"}></RankingProduct>
                     </div>
                 </div>
-                <div>
+                <div className="flex flex-col mb-[20px] gap-[14px]">
                     {/* 배너3 */}
+                    <div>
+                        {/* 헤더 */}
+                        <div className="items-center flex flex-row h-[13px] w-full text-[13px] leading-[13px] font-medium gap-[4px]">
+                            <div>🐣</div>
+                            <div>새로 조인한 메이커</div>
+                        </div>
+                    </div>
+                    <div className="flex flex-col p-1 bg-white rounded-[14px] gap-[4px]">
+                        {/* 메이커 리스트(리스트 랲퍼)) */}
+                        <JoinMaker link={"#"} image={"#"} name={"이름"} role={"직무"}></JoinMaker>
+                        <JoinMaker link={"#"} image={"#"} name={"이름"} role={"직무"}></JoinMaker>
+                        <JoinMaker link={"#"} image={"#"} name={"이름"} role={"직무"}></JoinMaker>
+                        <Link href="#"
+                            className="m-[6px] p-[6px] text-[12px] leading-[12px] text-center
+                                decoration-[rgb(109,85,255)] whitespace-nowrap text-[rgb(109,85,255)]
+                                bg-[rgb(240,238,255)] border-[1px] border-[rgba(109,85,255,0)]
+                                transition-all transition-delay-0 transition-duration-100 ease-out
+                                rounded-[8px]
+                                hover:shadow-[0_0_0_3px_rgba(109,85,255,0.4)]
+                            "
+                        >
+                            더보기
+                        </Link>
+                    </div>
                 </div>
                 <div className="sticky top-[92px]">
                     {/* 하단 스크롤 시 스틱키 배너 */}
