@@ -21,6 +21,7 @@ interface Post {
 
 const Right = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    
     const [posts, setPosts] = useState<Post[]>([]);
     const [loading, setLoading] = useState(true);
     const [isToggled, setIsToggled] = useState(false);
