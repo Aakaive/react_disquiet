@@ -2,8 +2,8 @@
 
 import React, {useState, useEffect} from "react";
 import Link from "next/link";
-import JoinMaker from "@/components/common/Right/JoinMaker";
-import MakerLog from "@/components/common/Right/MakerLog";
+import JoinMaker from "@/components/common/Right/JoinMakerItem";
+import MakerLog from "@/components/common/Right/TrendingMakerlogItem";
 
 import LinkBanner from "@/components/common/Right/LinkBanner";
 import TrendingProduct from "@/components/common/Right/TrendingProduct";
