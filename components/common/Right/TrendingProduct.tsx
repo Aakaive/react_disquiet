@@ -1,7 +1,5 @@
-'use client'
-
 import React from "react";
-import RankingProduct from "@/components/common/Right/TrendingProductItem"
+import TrendingProductItem from "@/components/common/Right/TrendingProductItem"
 
 const TrendingProduct = () => {
     return (
@@ -22,11 +20,11 @@ const TrendingProduct = () => {
             </div>
             <div className="flex flex-col p-1 overflow-hidden bg-white rounded-[14px]">
                 {/* 배너2 바디 */}
-                <RankingProduct link={`#`} rank={1} profile={"#"} title={"제목"} description={"프로덕트 설명글"}></RankingProduct>
-                <RankingProduct link={`#`} rank={2} profile={"#"} title={"제목"} description={"프로덕트 설명글"}></RankingProduct>
-                <RankingProduct link={`#`} rank={3} profile={"#"} title={"제목"} description={"프로덕트 설명글"}></RankingProduct>
-                <RankingProduct link={`#`} rank={4} profile={"#"} title={"제목"} description={"프로덕트 설명글"}></RankingProduct>
-                <RankingProduct link={`#`} rank={5} profile={"#"} title={"제목"} description={"프로덕트 설명글"}></RankingProduct>
+                <TrendingProductItem link={`#`} rank={1} profile={"#"} title={"제목"} description={"프로덕트 설명글"} />
+                <TrendingProductItem link={`#`} rank={2} profile={"#"} title={"제목"} description={"프로덕트 설명글"} />
+                <TrendingProductItem link={`#`} rank={3} profile={"#"} title={"제목"} description={"프로덕트 설명글"} />
+                <TrendingProductItem link={`#`} rank={4} profile={"#"} title={"제목"} description={"프로덕트 설명글"} />
+                <TrendingProductItem link={`#`} rank={5} profile={"#"} title={"제목"} description={"프로덕트 설명글"} />
             </div>
         </div>
     );
