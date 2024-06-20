@@ -104,7 +104,7 @@ const Main = () => {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className="h-[3200px]">
                     {/* 메인 포스트 */}
                     <div>
                         {/* 모든 포스트 랲퍼?? 뷰포트 알아보기 */}
