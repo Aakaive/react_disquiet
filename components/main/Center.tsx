@@ -1,7 +1,17 @@
-import React from "react";
+'use client';
+
+import React, { useState } from "react";
+import { Virtuoso } from 'react-virtuoso';
 import MakePost from "../common/Center/PublishPost";
 
+const loadMoreItems = (startIndex: number, endIndex: number, setItems: React.Dispatch<React.SetStateAction<string[]>>) => {
+    const newItems = Array.from({ length: endIndex - startIndex }, (_, index) => `Item ${startIndex + index + 1}`);
+    setItems((prevItems) => [...prevItems, ...newItems]);
+};
+
 const Center = () => {
+    const [items, setItems] = useState<string[]>(Array.from({ length: 20 }, (_, index) => `Item ${index + 1}`));
+
     return (
         <div className="relative mt-[32px] min-w-[478px] max-md:min-w-0">
             {/* 중앙 */}
@@ -50,15 +60,13 @@ const Center = () => {
             </div>
             <div className="my-[32px] mx-0">
                 {/* 메인 포스트 */}
-                <div>
-                    {/* 모든 포스트 랲퍼?? 뷰포트 알아보기 */}
-                    <div>
-                        {/* 리스트 */}
-                        <div>
-                            {/* 게시글 */}
-                        </div>
-                    </div>
-                </div>
+                <Virtuoso
+                    useWindowScroll
+                    style={{ height: '100%', width: '100%' }}
+                    totalCount={items.length}
+                    itemContent={(index) => <div className="h-[220px] py-[10px]">{items[index]}</div>}
+                    endReached={(endIndex) => loadMoreItems(endIndex, endIndex + 20, setItems)}
+                />
             </div>
         </div>
     );
