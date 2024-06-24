@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Virtuoso } from 'react-virtuoso';
 import MakePost from "../common/Center/PublishPost";
+import ViewMakerlog from "../common/Center/ViewMakerlog";
 
 const loadMoreItems = (startIndex: number, endIndex: number, setItems: React.Dispatch<React.SetStateAction<string[]>>) => {
     const newItems = Array.from({ length: endIndex - startIndex }, (_, index) => `Item ${startIndex + index + 1}`);
@@ -64,9 +65,25 @@ const Center = () => {
                     useWindowScroll
                     style={{ height: '100%', width: '100%' }}
                     totalCount={items.length}
-                    itemContent={(index) => <div className="h-[220px] py-[10px]">{items[index]}</div>}
+                    itemContent={(index) => <ViewMakerlog PostId={items[index]} />}
                     endReached={(endIndex) => loadMoreItems(endIndex, endIndex + 20, setItems)}
                 />
+
+                {/* 
+                    1. 게시글 데이터 모델 정하기
+                        [게시글 어트리뷰트]
+                        1. PostId(게시글 고유 식별자)
+                        2. 카테고리(프로덕트/메이커로그/클럽)
+                        3. 태그(메이커로그 태그)
+                        4. 작성자 프로필(프로필 사진, 이름, 직무 등)
+                        5. 게시글 제목
+                        6. 게시글 내용
+                        7. 게시글 어태치먼트(댓글, 업보트 등)
+                    2. fetch한 데이터를 data, setData로 이루어진 리액트 훅에 저장.(배열인듯?)
+                    3. virtuoso로 무한스크롤 구현.
+                        1. 스크롤은 useWindowScroll 적용
+                        2. itemContent를 통해서 가져 온 데이터를 적용. 로직도 여기에 적용.
+                */}
             </div>
         </div>
     );
