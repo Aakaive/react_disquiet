@@ -5,5 +5,33 @@
         "task" : "백엔드 엔지니어",
         "employee" : "toss",
         "profileImage" : "#"
+    },
+    {
+        "userId" : "aaka0002",
+        "name" : "이영희",
+        "task" : "프론트엔드 엔지니어",
+        "employee" : "naver",
+        "profileImage" : "#"
+    },
+    {
+        "userId" : "aaka0003",
+        "name" : "장하늘",
+        "task" : "풀스택 엔지니어",
+        "employee" : "kakao",
+        "profileImage" : "#"
+    },
+    {
+        "userId" : "aaka0004",
+        "name" : "김유원",
+        "task" : "백엔드 엔지니어",
+        "employee" : "nexon",
+        "profileImage" : "#"
+    },
+    {
+        "userId" : "aaka0005",
+        "name" : "성유리",
+        "task" : "백엔드 엔지니어",
+        "employee" : "google",
+        "profileImage" : "#"
     }
 ]

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Top from '@/components/layout/Top';
 import Main from '@/components/main/Main';
+import { DataProvider } from "@/context/DataContext";
 
 export default function main() {
   const repeatText = () => {
