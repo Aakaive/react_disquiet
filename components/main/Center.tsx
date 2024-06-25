@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Virtuoso } from 'react-virtuoso';
 import MakePost from "../common/Center/PublishPost";
-import ViewMakerlog from "../common/Center/ViewMakerlog";
+import ViewPost from "../common/Center/ViewPost";
 
 const loadMoreItems = (startIndex: number, endIndex: number, setItems: React.Dispatch<React.SetStateAction<string[]>>) => {
     const newItems = Array.from({ length: endIndex - startIndex }, (_, index) => `Item ${startIndex + index + 1}`);
@@ -65,8 +65,9 @@ const Center = () => {
                     useWindowScroll
                     style={{ height: '100%', width: '100%' }}
                     totalCount={items.length}
-                    itemContent={(index) => <ViewMakerlog PostId={items[index]} />}
+                    itemContent={(index) => <ViewPost PostId={items[index]} />}
                     endReached={(endIndex) => loadMoreItems(endIndex, endIndex + 20, setItems)}
+                    // 데이터를 가져와서 하나씩 전달하고, 해당 데이터셋의 타입에 따라 해당 컴포넌트 내에서 각기 다른 컴포넌트 호출
                 />
 
                 {/* 

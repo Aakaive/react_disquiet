@@ -1,5 +1,4 @@
 import React from "react";
-import ViewPostHeader from "./ViewPostHeader";
 
 interface PostProps {
     PostId : string;
@@ -7,11 +6,12 @@ interface PostProps {
 
 const ViewMakerlog : React.FC<PostProps> = ({PostId}) => {
     return (
-        <div className="flex flex-col w-full cursor-pointer">
-            <ViewPostHeader />
-            <div className="h-[200px] w-full">
+        <div className="flex flex-col mb-[40px] ml-[32px]">
+            <div className="w-full">
                 {/* 메인 */}
-                {PostId}
+                <div className="relative items-center flex flex-col pb-[16px] px-[20px] pt-[20px] bg-white transition-all duration-100 ease-out rounded-[20px] gap-[8px]">
+                    {PostId}
+                </div>
             </div>
         </div>
     );
