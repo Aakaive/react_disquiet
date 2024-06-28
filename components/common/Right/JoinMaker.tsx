@@ -4,19 +4,13 @@ import JoinMakerItem from '@/components/common/Right/JoinMakerItem';
 import { useData } from '@/context/DataContext';
 
 const JoinMaker = () => {
-  const { data, loading, error } = useData();
-
-  console.log('Data in JoinMaker:', data); // 데이터 로그 추가
-  console.log('Loading in JoinMaker:', loading); // 로딩 상태 로그 추가
-  console.log('Error in JoinMaker:', error); // 에러 상태 로그 추가
+  const { data, loading } = useData();
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  const ThreeItems = data.slice(0,3);
 
   return (
     <div className="flex flex-col mb-[20px] gap-[14px]">
@@ -28,7 +22,7 @@ const JoinMaker = () => {
       </div>
 
       <div className="flex flex-col p-1 bg-white rounded-[14px] gap-[4px]">
-        {data.map(item => (
+        {ThreeItems.map(item => (
           <JoinMakerItem key={item.userId} link="#" image={item.profileImage} name={item.name} role={item.task} />
         ))}
         <Link href="#"

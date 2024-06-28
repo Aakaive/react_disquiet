@@ -11,8 +11,6 @@ export default function main() {
     return elements;
   };
   return (
-      <div className="h-full">
-        <Main />
-      </div>
+      <div className="h-full">안녕 디지몬</div>
   );
 }

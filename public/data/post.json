@@ -1,20 +1,57 @@
 [
     {
-        "link" : "#",
-        "image" : "#",
-        "name" : "aaka001",
-        "role" : "back-end engineer"
+        "postNum" : 1,
+        "userId" : "aaka0001",
+        "date" : "2023-06-21T12:34:56Z",
+        "title": "웹 애플리케이션 제작기",
+        "content": "내용",
+        "upvote" : 31,
+        "view" : 173,
+        "category" : "makerlog",
+        "tags" : ["소셜", "미디어"],
+        "comment": []
     },
     {
-        "link" : "#",
-        "image" : "#",
-        "name" : "aaka002",
-        "role" : "front-end engineer"
+        "postNum" : 2,
+        "userId" : "aaka0005",
+        "date" : "2023-07-23T17:31:32Z",
+        "title": "자바 스프링 부트캠프 참여 후기",
+        "content": "내용",
+        "upvote" : 44,
+        "view" : 323,
+        "category" : "makerlog",
+        "tags" : ["교육"],
+        "comment": []
     },
     {
-        "link" : "#",
-        "image" : "#",
-        "name" : "aaka003",
-        "role" : "full-stack engineer"
+        "postNum" : 3,
+        "userId" : "aaka0002",
+        "date" : "2023-08-11T14:14:55Z",
+        "title": "프론트 엔지니어링 코파일럿",
+        "content": "내용",
+        "upvote" : 12,
+        "view" : 129,
+        "category" : "product",
+        "tags" : [],
+        "comment" : [
+            {
+                "commentNum": 1,
+                "userId": "aaka0001",
+                "content": "좋은 글이었습니다.",
+                "date": "2023-08-13T16:32:51Z"
+            }
+        ]
+    },
+    {
+        "postNum" : 4,
+        "userId" : "aaka0004",
+        "date" : "2023-10-13T09:11:45Z",
+        "title": "새로운 openAI 출시 모델 사용기",
+        "content": "내용",
+        "upvote" : 47,
+        "view" : 442,
+        "category" : "makerlog",
+        "tags" : ["인공지능"],
+        "comment": []
     }
 ]

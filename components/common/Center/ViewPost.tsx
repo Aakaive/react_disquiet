@@ -11,7 +11,7 @@ const ViewPost : React.FC<PostProps> = ({PostId}) => {
         <div>
             {/* 전체 랲퍼 */}
             <ViewPostHeader />
-            <ViewMakerlog PostId={"123"} />
+            <ViewMakerlog PostId={PostId} />
                 {/* 메인은 카테고리(프로덕트, 메이커로그, 클럽 개설)에 맞는 뷰 컴포넌트 호출(프롭스 전달) */}
                 {/* 게시글 데이터 모델이 공통인지 개별인데 다 같이 표시되는건지 물어보기(그냥 공통으로 만들어서 해도 될듯)*/}
                 {/* 

@@ -1,52 +1,71 @@
+'use client';
+
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+
+interface User {
+  userId: string;
+  name: string;
+  task: string;
+  employee: string;
+  profileImage: string;
+
+}
+
+interface Comment {
+  commentNum: number;
+  userId: string;
+  content: string;
+  date: string;
+}
+
+interface Post {
+  postNum: number;
+  userId: string;
+  date: string;
+  title: string;
+  content: string;
+  upvote: number;
+  view: number;
+  category: string;
+  tags: string[];
+  comments: Comment[];
+}
 
 interface DataContextProps {
   data: any[];
+  users: User[];
   loading: boolean;
-  error: string | null;
 }
 
 interface DataProviderProps {
   children: ReactNode;
 }
 
-const DataContext = createContext<DataContextProps>({ data: [], loading: true, error: null });
+const DataContext = createContext<DataContextProps>({ users: [], data: [], loading: true });
 
 export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
+  const [users, setUsers] = useState<User[]>([]);
   const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    console.log('useEffect triggered'); // useEffect가 실행되는지 확인
     const fetchData = async () => {
-      try {
-        const response = await fetch('/data/post.json');
-        console.log('Fetch response:', response); // 응답 로그 추가
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const result = await response.json();
-        console.log('Fetch result:', result); // 결과 로그 추가
-        setData(result);
-      } catch (error) {
-        console.error("Failed to fetch data", error);
-        if (error instanceof Error) {
-          setError(error.message);
-        } else {
-          setError(String(error));
-        }
-      } finally {
-        setLoading(false);
-        console.log('Fetch completed'); // 데이터 로딩이 완료되었는지 확인
-      }
+      const usersResponse = await fetch('/data/user.json');
+      const response = await fetch('/data/user.json');
+
+      const usersData = await usersResponse.json();
+      const result = await response.json();
+
+      setUsers(usersData);
+      setData(result);
+      setLoading(false);
     };
 
     fetchData();
   }, []);
 
   return (
-    <DataContext.Provider value={{ data, loading, error }}>
+    <DataContext.Provider value={{ users, data, loading }}>
       {children}
     </DataContext.Provider>
   );

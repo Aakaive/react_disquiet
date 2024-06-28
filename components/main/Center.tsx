@@ -1,17 +1,31 @@
 'use client';
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Virtuoso } from 'react-virtuoso';
 import MakePost from "../common/Center/PublishPost";
 import ViewPost from "../common/Center/ViewPost";
-
-const loadMoreItems = (startIndex: number, endIndex: number, setItems: React.Dispatch<React.SetStateAction<string[]>>) => {
-    const newItems = Array.from({ length: endIndex - startIndex }, (_, index) => `Item ${startIndex + index + 1}`);
-    setItems((prevItems) => [...prevItems, ...newItems]);
-};
+import { useData } from "@/context/DataContext";
 
 const Center = () => {
-    const [items, setItems] = useState<string[]>(Array.from({ length: 20 }, (_, index) => `Item ${index + 1}`));
+    const { users, loading } = useData();
+    const [ items, setItems ] = useState<any[]>([]);
+
+    useEffect(() => {
+        if(!loading) {
+            setItems(users.slice(0,2));
+        }
+    }, [loading, users]);
+
+    const loadMoreItems = (endIndex: number) => {
+        setItems(prevItems => [
+            ...prevItems,
+            ...users.slice(prevItems.length, prevItems.length + 1)
+        ]);
+    };
+
+    if(loading) {
+        return <div>loading...</div>;
+    }
 
     return (
         <div className="relative mt-[32px] min-w-[478px] max-md:min-w-0">
@@ -65,8 +79,8 @@ const Center = () => {
                     useWindowScroll
                     style={{ height: '100%', width: '100%' }}
                     totalCount={items.length}
-                    itemContent={(index) => <ViewPost PostId={items[index]} />}
-                    endReached={(endIndex) => loadMoreItems(endIndex, endIndex + 20, setItems)}
+                    itemContent={(index) => <ViewPost PostId={items[index].userId} />}
+                    endReached={(endIndex) => loadMoreItems(endIndex)}
                     // 데이터를 가져와서 하나씩 전달하고, 해당 데이터셋의 타입에 따라 해당 컴포넌트 내에서 각기 다른 컴포넌트 호출
                 />
 
