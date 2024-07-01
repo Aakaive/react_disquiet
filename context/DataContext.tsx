@@ -32,8 +32,8 @@ interface Post {
 }
 
 interface DataContextProps {
-  data: any[];
   users: User[];
+  posts: Post[];
   loading: boolean;
 }
 
@@ -41,23 +41,24 @@ interface DataProviderProps {
   children: ReactNode;
 }
 
-const DataContext = createContext<DataContextProps>({ users: [], data: [], loading: true });
+const DataContext = createContext<DataContextProps>({ users: [], posts: [], loading: true });
 
 export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
   const [users, setUsers] = useState<User[]>([]);
-  const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  // post 추가하기.
+  const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const usersResponse = await fetch('/data/user.json');
-      const response = await fetch('/data/user.json');
+      const postsResponse = await fetch('/data/post.json');
 
       const usersData = await usersResponse.json();
-      const result = await response.json();
+      const postsData = await postsResponse.json();
 
       setUsers(usersData);
-      setData(result);
+      setPosts(postsData);
       setLoading(false);
     };
 
@@ -65,7 +66,7 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
   }, []);
 
   return (
-    <DataContext.Provider value={{ users, data, loading }}>
+    <DataContext.Provider value={{ users, posts, loading }}>
       {children}
     </DataContext.Provider>
   );

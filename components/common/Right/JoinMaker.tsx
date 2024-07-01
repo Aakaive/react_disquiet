@@ -4,13 +4,13 @@ import JoinMakerItem from '@/components/common/Right/JoinMakerItem';
 import { useData } from '@/context/DataContext';
 
 const JoinMaker = () => {
-  const { data, loading } = useData();
+  const { users, loading } = useData();
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  const ThreeItems = data.slice(0,3);
+  const ThreeItems = users.slice(0,3);
 
   return (
     <div className="flex flex-col mb-[20px] gap-[14px]">

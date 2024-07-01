@@ -7,7 +7,7 @@
         "content": "내용",
         "upvote" : 31,
         "view" : 173,
-        "category" : "makerlog",
+        "category" : "메이커로그",
         "tags" : ["소셜", "미디어"],
         "comment": []
     },
@@ -19,7 +19,7 @@
         "content": "내용",
         "upvote" : 44,
         "view" : 323,
-        "category" : "makerlog",
+        "category" : "프로덕트",
         "tags" : ["교육"],
         "comment": []
     },
@@ -31,7 +31,7 @@
         "content": "내용",
         "upvote" : 12,
         "view" : 129,
-        "category" : "product",
+        "category" : "메이커로그",
         "tags" : [],
         "comment" : [
             {
@@ -50,8 +50,44 @@
         "content": "내용",
         "upvote" : 47,
         "view" : 442,
-        "category" : "makerlog",
+        "category" : "메이커로그",
         "tags" : ["인공지능"],
+        "comment": []
+    },
+    {
+        "postNum" : 5,
+        "userId" : "aaka0001",
+        "date" : "2023-10-16T10:09:12Z",
+        "title": "코인 업소 서칭",
+        "content": "내용",
+        "upvote" : 34,
+        "view" : 157,
+        "category" : "프로덕트",
+        "tags" : [],
+        "comment": []
+    },
+    {
+        "postNum" : 6,
+        "userId" : "aaka0003",
+        "date" : "2023-12-19T19:31:22Z",
+        "title": "새로운 도전, 인턴쉽 후기",
+        "content": "내용",
+        "upvote" : 72,
+        "view" : 643,
+        "category" : "메이커로그",
+        "tags" : ["소셜"],
+        "comment": []
+    },
+    {
+        "postNum" : 7,
+        "userId" : "aaka0005",
+        "date" : "2024-03-22T15:23:45Z",
+        "title": "리액트 코파일럿",
+        "content": "내용",
+        "upvote" : 12,
+        "view" : 122,
+        "category" : "프로덕트",
+        "tags" : [],
         "comment": []
     }
 ]

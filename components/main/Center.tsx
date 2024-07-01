@@ -6,20 +6,51 @@ import MakePost from "../common/Center/PublishPost";
 import ViewPost from "../common/Center/ViewPost";
 import { useData } from "@/context/DataContext";
 
+
+type Category = 'all' | 'product' | 'makerlog' | 'club';
+
 const Center = () => {
-    const { users, loading } = useData();
+    const { users, posts, loading } = useData();
     const [ items, setItems ] = useState<any[]>([]);
+    const [ sort, setSort ] = useState<boolean>(true);
+    const [ category, setCategory ] = useState<Category>('all');
+
+    const setCategoryAll = () => setCategory('all');
+    const setCategoryProduct = () => setCategory('product');
+    const setCategoryMakerlog = () => setCategory('makerlog');
+    const setCategoryClub = () => setCategory('club');
+
+    const categorySlider = (category : Category) => {
+        switch(category) {
+            case 'all' :
+                return 'left-[0px] w-[20.74px]';
+            case 'product' :
+                return 'left-[44.74px] w-[41.48px]';
+            case 'makerlog' :
+                return 'left-[110.22px] w-[51.86px]';
+            case 'club' :
+                return 'left-[186.08px] w-[20.74px]';
+        }
+    };
+
+    const handleSortBest = () => {
+        setSort(true);
+    }
+
+    const handleSortNewest = () => {
+        setSort(false);
+    }
 
     useEffect(() => {
         if(!loading) {
-            setItems(users.slice(0,2));
+            setItems(posts.slice(0,2));
         }
-    }, [loading, users]);
+    }, [loading, posts]);
 
     const loadMoreItems = (endIndex: number) => {
         setItems(prevItems => [
             ...prevItems,
-            ...users.slice(prevItems.length, prevItems.length + 1)
+            ...posts.slice(prevItems.length, prevItems.length + 1)
         ]);
     };
 
@@ -37,38 +68,50 @@ const Center = () => {
                     {/* 탭 랲퍼 */}
                     <div className="relative items-center flex gap-[24px]">
                         {/* 좌측 랲퍼 */}
-                        <div className={`items-center flex justify-center py-[12px] text-[12px] leading-[12px] whitespace-nowrap
-                                text-[rgb(142,142,142)] cursor-pointer
+                        <div onClick={setCategoryAll} 
+                            className={`items-center flex justify-center py-[12px] text-[12px] leading-[12px] whitespace-nowrap
+                                cursor-pointer
                                 transition-all transition-delay-0 transition-duration-100 ease-out
                                 hover:text-[rgb(109,85,255)] 
+                                ${category === 'all' ? "text-[rgb(109,85,255)]" : "text-[rgb(142,142,142)]"}
                             `}>전체</div>
-                        <div className={`items-center flex justify-center py-[12px] text-[12px] leading-[12px] whitespace-nowrap
-                                text-[rgb(142,142,142)] cursor-pointer
+                        <div onClick={setCategoryProduct}
+                            className={`items-center flex justify-center py-[12px] text-[12px] leading-[12px] whitespace-nowrap
+                                cursor-pointer
                                 transition-all transition-delay-0 transition-duration-100 ease-out 
                                 hover:text-[rgb(109,85,255)] 
+                                ${category === 'product' ? "text-[rgb(109,85,255)]" : "text-[rgb(142,142,142)]"}
                             `}>프로덕트</div>
-                        <div className={`items-center flex justify-center py-[12px] text-[12px] leading-[12px] whitespace-nowrap
-                                text-[rgb(142,142,142)] cursor-pointer
+                        <div onClick={setCategoryMakerlog}
+                            className={`items-center flex justify-center py-[12px] text-[12px] leading-[12px] whitespace-nowrap
+                                cursor-pointer
                                 transition-all transition-delay-0 transition-duration-100 ease-out 
                                 hover:text-[rgb(109,85,255)] 
+                                ${category === 'makerlog' ? "text-[rgb(109,85,255)]" : "text-[rgb(142,142,142)]"}
                             `}>메이커로그</div>
-                        <div className={`items-center flex justify-center py-[12px] text-[12px] leading-[12px] whitespace-nowrap
-                                text-[rgb(142,142,142)] cursor-pointer
+                        <div onClick={setCategoryClub}
+                            className={`items-center flex justify-center py-[12px] text-[12px] leading-[12px] whitespace-nowrap
+                                cursor-pointer
                                 transition-all transition-delay-0 transition-duration-100 ease-out 
                                 hover:text-[rgb(109,85,255)] 
+                                ${category === 'club' ? "text-[rgb(109,85,255)]" : "text-[rgb(142,142,142)]"}
                             `}>클럽</div>
+                        <div className={`${categorySlider(category)} absolute bottom-[0px] h-[2px] z-[4] bg-[rgb(109,85,255)] transition-all duration-250 ease-in-out`}></div>
                     </div>
                     <div className="relative items-center flex">
                         {/* 우측 랲퍼 */}
                         <button className="relative flex py-[4px] text-[16px] text-start text-[rgb(0,0,0)] rounded-[8px] cursor-default">
-                            <div className={`relative items-center flex justify-center py-[4px] px-[6px] z-1
+                            <div onClick={handleSortBest} className={`relative items-center flex justify-center py-[4px] px-[6px] z-[1]
                                     text-[12px] font-medium leading-[13.2px] whitespace-nowrap text-[rgba(0,0,0,0.4)] cursor-pointer rounded-[6px]
                                     transtion-all transition-delay-0 transition-duration-100 ease-out
                                 `}>추천</div>
-                            <div className={`relative items-center flex justify-center py-[4px] px-[6px] z-1
+                            <div onClick={handleSortNewest} className={`relative items-center flex justify-center py-[4px] px-[6px] z-[1]
                                     text-[12px] font-medium leading-[13.2px] whitespace-nowrap text-[rgba(0,0,0,0.4)] cursor-pointer rounded-[6px]
                                     transtion-all transition-delay-0 transition-duration-100 ease-out
                                 `}>최신</div>
+                            <div className={`${sort ? "left-0" : "left-[50%]"} absolute h-[calc(100%-8px)] top-[4px] w-[calc(50%)] bg-white transition-all duration-100 ease-out rounded-[6px]`}>
+                                
+                            </div>
                         </button>
                     </div>
                 </div>
@@ -79,7 +122,7 @@ const Center = () => {
                     useWindowScroll
                     style={{ height: '100%', width: '100%' }}
                     totalCount={items.length}
-                    itemContent={(index) => <ViewPost PostId={items[index].userId} />}
+                    itemContent={(index) => <ViewPost PostNum={items[index].postNum} />}
                     endReached={(endIndex) => loadMoreItems(endIndex)}
                     // 데이터를 가져와서 하나씩 전달하고, 해당 데이터셋의 타입에 따라 해당 컴포넌트 내에서 각기 다른 컴포넌트 호출
                 />
