@@ -1,13 +1,52 @@
-'use client'
+'use client';
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from 'next/navigation';
 import TopicButton from "@/components/common/Left/TopicButton";
 
 const Left = () => {
     const [isVisible, setIsVisible] = useState(true);
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const [selectedTopic, setSelectedTopic] = useState<number>(0);
+
+    const topics = [
+        { icon: "🌕", text: "전체" },
+        { icon: "📡", text: "플랫폼" },
+        { icon: "📷", text: "라이프스타일" },
+        { icon: "💰", text: "금융" },
+        { icon: "👫", text: "소셜" },
+        { icon: "🎙", text: "미디어" },
+        { icon: "✏️", text: "교육" },
+        { icon: "🚲", text: "생산성" },
+        { icon: "🔗", text: "블록체인" },
+        { icon: "💻", text: "노코드" },
+        { icon: "🤖", text: "인공지능" },
+        { icon: "🏘", text: "커뮤니티" },
+        { icon: "📊", text: "분석" },
+        { icon: "🎨", text: "디자인" },
+        { icon: "🧑‍💻", text: "개발" },
+        { icon: "🔮", text: "마케팅" },
+        { icon: "🎮", text: "게임" },
+        { icon: "💳", text: "이커머스" }
+    ];
 
     const handleToggle = () => {
         setIsVisible(!isVisible);
+    };
+
+    useEffect(() => {
+        const selected = searchParams?.get('selected');
+        if (selected) {
+            setSelectedTopic(Number(selected));
+        }
+    }, [searchParams]);
+
+    const handleTopicClick = (index: number) => {
+        setSelectedTopic(index);
+        const params = new URLSearchParams(Array.from(searchParams.entries()));
+        params.set('selected', index.toString());
+        router.push(`/?${params.toString()}`);
     };
 
     return (
@@ -48,24 +87,15 @@ const Left = () => {
                                     `}
                                 >
                                     {/* 리스트 랲퍼 */}
-                                    <TopicButton><span>🌕</span>전체</TopicButton>
-                                    <TopicButton><span>📡</span>플랫폼</TopicButton>
-                                    <TopicButton><span>📷</span>라이프스타일</TopicButton>
-                                    <TopicButton><span>💰</span>금융</TopicButton>
-                                    <TopicButton><span>👫</span>소셜</TopicButton>
-                                    <TopicButton><span>🎙</span>미디어</TopicButton>
-                                    <TopicButton><span>✏️</span>교육</TopicButton>
-                                    <TopicButton><span>🚲</span>생산성</TopicButton>
-                                    <TopicButton><span>🔗</span>블록체인</TopicButton>
-                                    <TopicButton><span>💻</span>노코드</TopicButton>
-                                    <TopicButton><span>🤖</span>인공지능</TopicButton>
-                                    <TopicButton><span>🏘</span>커뮤니티</TopicButton>
-                                    <TopicButton><span>📊</span>분석</TopicButton>
-                                    <TopicButton><span>🎨</span>디자인</TopicButton>
-                                    <TopicButton><span>🧑‍💻</span>개발</TopicButton>
-                                    <TopicButton><span>🔮</span>마케팅</TopicButton>
-                                    <TopicButton><span>🎮</span>게임</TopicButton>
-                                    <TopicButton><span>💳</span>이커머스</TopicButton>
+                                    {topics.map((topic, index) => (
+                                        <TopicButton
+                                            key={index}
+                                            icon={topic.icon}
+                                            text={topic.text}
+                                            isSelected={selectedTopic === index}
+                                            onClick={() => handleTopicClick(index)}
+                                        />
+                                    ))}
                                 </div>
                                 <div className="absolute bottom-[-4px] h-[14px] w-full bg-scroll bg-clip-border
                                         bg-[rgba(0,0,0,0)] bg-origin-padding bg-gradient-to-b from-[rgba(255,255,255,0.2)] to-[rgba(255,255,255,1)]

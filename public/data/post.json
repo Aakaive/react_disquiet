@@ -7,9 +7,9 @@
         "content": "내용",
         "upvote" : 31,
         "view" : 173,
-        "category" : "메이커로그",
+        "category" : "makerlog",
         "tags" : ["소셜", "미디어"],
-        "comment": []
+        "comments": []
     },
     {
         "postNum" : 2,
@@ -19,9 +19,9 @@
         "content": "내용",
         "upvote" : 44,
         "view" : 323,
-        "category" : "프로덕트",
+        "category" : "product",
         "tags" : ["교육"],
-        "comment": []
+        "comments": []
     },
     {
         "postNum" : 3,
@@ -31,9 +31,9 @@
         "content": "내용",
         "upvote" : 12,
         "view" : 129,
-        "category" : "메이커로그",
+        "category" : "makerlog",
         "tags" : [],
-        "comment" : [
+        "comments" : [
             {
                 "commentNum": 1,
                 "userId": "aaka0001",
@@ -50,9 +50,9 @@
         "content": "내용",
         "upvote" : 47,
         "view" : 442,
-        "category" : "메이커로그",
+        "category" : "makerlog",
         "tags" : ["인공지능"],
-        "comment": []
+        "comments": []
     },
     {
         "postNum" : 5,
@@ -62,9 +62,9 @@
         "content": "내용",
         "upvote" : 34,
         "view" : 157,
-        "category" : "프로덕트",
+        "category" : "product",
         "tags" : [],
-        "comment": []
+        "comments": []
     },
     {
         "postNum" : 6,
@@ -74,9 +74,9 @@
         "content": "내용",
         "upvote" : 72,
         "view" : 643,
-        "category" : "메이커로그",
+        "category" : "makerlog",
         "tags" : ["소셜"],
-        "comment": []
+        "comments": []
     },
     {
         "postNum" : 7,
@@ -86,8 +86,8 @@
         "content": "내용",
         "upvote" : 12,
         "view" : 122,
-        "category" : "프로덕트",
+        "category" : "product",
         "tags" : [],
-        "comment": []
+        "comments": []
     }
 ]

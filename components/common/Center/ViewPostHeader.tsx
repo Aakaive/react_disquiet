@@ -1,20 +1,21 @@
 import React from "react";
 import Link from "next/link";
 import { useData } from "@/context/DataContext";
+import FormattedDate from "../FormattedDate";
 
 interface PostHeaderProps {
-    userId : string;
-    category : string;
+    postNum : number;
 }
 
-const ViewPostHeader: React.FC<PostHeaderProps> = ({userId, category}) => {
-    const { users, loading } = useData();
+const ViewPostHeader: React.FC<PostHeaderProps> = ({postNum}) => {
+    const { posts, users, loading } = useData();
 
     if(loading) {
         return <div>loading...</div>;
     }
 
-    const user = users.find(user => user.userId === userId);
+    const post = posts.find(post => post.postNum === postNum);
+    const user = users.find(user => user.userId === post?.userId);
 
     return (
         <div className="relative items-start flex justify-between">
@@ -32,7 +33,7 @@ const ViewPostHeader: React.FC<PostHeaderProps> = ({userId, category}) => {
                         {/* 프로필 미리보기 */}
                     </div>
                 </div>
-                {category === '메이커로그' && (            
+                {post?.category === 'makerlog' && (            
                     <div className="flex flex-col mb-[12px] pt-[2px] text-[14px] leading-[18.2px] text-[rgb(112,112,112)]">
                         {/* 유저 정보 */}
                         <div>
@@ -46,7 +47,7 @@ const ViewPostHeader: React.FC<PostHeaderProps> = ({userId, category}) => {
                                 {"님의 "}
                                 <span className="text-[rgb(27,206,107)]">
                                     {/* 카테고리 분류(메이커로그/프로덕트 등.) 로직 추가 + 첫 게시글이면 분류 앞에 '첫' 수식어 붙이기 */}
-                                    {category}
+                                    {post.category}
                                 </span>
                             </span>
                         </div>
@@ -74,12 +75,12 @@ const ViewPostHeader: React.FC<PostHeaderProps> = ({userId, category}) => {
                             </div>
                             <div className="w-fit">
                                 {/* 작성 시간 */}
-                                약 12시간 전
+                                <FormattedDate dateString={post?.date} />
                             </div>
                         </div>
                     </div>
                 )}
-                {category === "프로덕트" && (
+                {post?.category === "product" && (
                     <div className="flex flex-col mb-[12px] pt-[2px] text-[14px] leading-[18.2px] text-[rgb(112,112,112)]">
                         {/* 유저 정보 */}
                         <div>
@@ -93,7 +94,7 @@ const ViewPostHeader: React.FC<PostHeaderProps> = ({userId, category}) => {
                                 {"님이 "}
                                 <span className="text-[rgb(109,85,255)]">
                                     {/* 카테고리 분류(메이커로그/프로덕트 등.) 로직 추가 + 첫 게시글이면 분류 앞에 '첫' 수식어 붙이기 */}
-                                    {category}
+                                    {post.category}
                                 </span>
                                 {"를 공유했어요."}
                             </span>
@@ -122,7 +123,7 @@ const ViewPostHeader: React.FC<PostHeaderProps> = ({userId, category}) => {
                             </div>
                             <div className="w-fit">
                                 {/* 작성 시간 */}
-                                약 12시간 전
+                                <FormattedDate dateString={post?.date} />
                             </div>
                         </div>
                     </div>
