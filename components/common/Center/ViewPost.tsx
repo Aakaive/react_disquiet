@@ -30,7 +30,7 @@ const ViewPost : React.FC<PostProps> = ({postNum}) => {
     }
 
     return (
-        <div>
+        <div className="cursor-pointer">
             <ViewPostHeader postNum={postNum} />
             {callViewer()}
         </div>

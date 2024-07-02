@@ -47,7 +47,7 @@ const ViewPostHeader: React.FC<PostHeaderProps> = ({postNum}) => {
                                 {"님의 "}
                                 <span className="text-[rgb(27,206,107)]">
                                     {/* 카테고리 분류(메이커로그/프로덕트 등.) 로직 추가 + 첫 게시글이면 분류 앞에 '첫' 수식어 붙이기 */}
-                                    {post.category}
+                                    메이커로그
                                 </span>
                             </span>
                         </div>
@@ -94,7 +94,7 @@ const ViewPostHeader: React.FC<PostHeaderProps> = ({postNum}) => {
                                 {"님이 "}
                                 <span className="text-[rgb(109,85,255)]">
                                     {/* 카테고리 분류(메이커로그/프로덕트 등.) 로직 추가 + 첫 게시글이면 분류 앞에 '첫' 수식어 붙이기 */}
-                                    {post.category}
+                                    프로덕트
                                 </span>
                                 {"를 공유했어요."}
                             </span>
